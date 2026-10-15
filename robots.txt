@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bernardogomezbey.com/sitemap.xml
