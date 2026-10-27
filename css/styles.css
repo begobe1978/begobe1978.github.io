@@ -446,11 +446,44 @@ a:focus-visible {
 }
 .navlinks { flex-wrap: wrap; justify-content: flex-end; }
 .card, .research-line { border-radius: 3px; }
-.card a:hover, .research-line a:hover { text-decoration: underline; }
+.research-line a:hover { text-decoration: underline; }
 @media (max-width: 680px) {
   .nav { flex-direction: column; align-items: stretch; gap: 2px; padding: 12px 0; }
   .navlinks { flex-wrap: nowrap; justify-content: flex-start; gap: 18px; overflow-x: auto; padding: 10px 0; scrollbar-width: thin; }
   .navlinks a:not(:last-child) { display: inline; }
   .navlinks a { white-space: nowrap; font-size: 12px; }
   .navlinks a:last-child { padding: 0; border: 0; font-size: 12px; }
+}
+
+/* Interacciones: trazos discretos y tarjetas elevadas con ratón. */
+.card a, .heading .more, .hero-links a:nth-child(2),
+.navlinks a:not(:last-child) {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 0 1px;
+}
+.navlinks a:not(:last-child) { background-position: left bottom 2px; }
+
+/* El foco funciona también en dispositivos sin hover. */
+.card a:is(:hover, :focus-visible),
+.heading .more:is(:hover, :focus-visible),
+.hero-links a:nth-child(2):is(:hover, :focus-visible),
+.navlinks a:not(:last-child):is(:hover, :focus-visible) {
+  background-size: 100% 1px;
+  text-decoration: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .card { transition: transform 180ms ease, box-shadow 180ms ease; }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgb(37 43 40 / 7%);
+  }
+  .card a, .heading .more, .hero-links a:nth-child(2),
+  .navlinks a:not(:last-child) { transition: background-size 200ms ease; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .card, .card a, .heading .more, .hero-links a:nth-child(2),
+  .navlinks a:not(:last-child) { transition: none; }
+  .card:hover { transform: none; }
 }
