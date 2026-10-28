@@ -487,3 +487,29 @@ a:focus-visible {
   .navlinks a:not(:last-child) { transition: none; }
   .card:hover { transform: none; }
 }
+
+/* Páginas interiores: listados sencillos, sin tarjetas. */
+.inner-page { padding: 52px 0 90px; min-height: 65vh; }
+.back-link { display: inline-block; font-size: 12px; font-weight: 700; margin-bottom: 38px; }
+.back-link:hover, .entry a:hover { text-decoration: underline; }
+.inner-heading { max-width: 750px; margin-bottom: 44px; }
+.inner-heading h1 { font-size: clamp(40px, 5vw, 64px); margin: 12px 0 18px; }
+.entry { display: flex; align-items: flex-start; gap: 26px; padding: 25px 0; border-top: 1px solid var(--border); }
+.entry:last-child { border-bottom: 1px solid var(--border); }
+.entry-body { max-width: 790px; }
+.entry .kicker { display: block; margin-bottom: 9px; }
+.entry h3 { font: normal clamp(23px, 2.6vw, 30px)/1.22 var(--serif); letter-spacing: -.025em; margin: 0 0 8px; }
+.entry p { color: var(--muted); font-size: 13px; line-height: 1.75; margin: 0 0 12px; }
+.entry .byline { font-size: 11px; margin-bottom: 8px; }
+.entry a { display: inline-block; font-size: 12px; font-weight: 750; margin-top: 3px; }
+.entry-book > img { width: 84px; height: auto; flex: none; border: 1px solid var(--border); box-shadow: 4px 5px 0 #e2e0d9; }
+.external-more { margin: 28px 0 0; }
+.heading-links { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; }
+.more-internal { color: var(--accent); }
+@media (max-width: 680px) {
+  .inner-page { padding: 35px 0 65px; }
+  .back-link { margin-bottom: 28px; }
+  .inner-heading { margin-bottom: 32px; }
+  .entry { gap: 16px; padding: 22px 0; }
+  .entry-book > img { width: 70px; }
+}
